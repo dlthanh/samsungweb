@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+        $(document).ready(function() {
+            var photoessay = new Swiper('.photoessay-wrapper', {
+                speed: 600,
+                slidePerView: 1,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                mousewheelControl: true,
+                simulateTouch: false,
+                onSlideChangeStart: function() {
+                    new WOW().init();
+                }
+            });
+
+            $('[data-fancy="images"]').fancybox({
+                buttons: []
+            });
+
+            $('.pw-arrow').click(function() {
+                photoessay.slideNext();
+            })
+
+            new WOW().init();
+        })
+    </script>
+</head>
+<body>
+<div class="photoessay-wrapper swiper-container">
+    <img src="images/arrow.png" alt="" class="pw-arrow">
+
+    <div class="swiper-wrapper">
+        <div class="pw-cover swiper-slide">
+            <div class="pwc-wrapper">
+                <div class="pwcw-main">
+                    <img src="images/photoessay.png" alt="" class="pwcwm-bg">
+                    <a href="images/img-cover.jpg" class="pwcwm-img wow fadeIn" data-fancy="images" data-wow-duration="1s">
+                        <img src="images/img-cover.jpg" alt="" class="pw-img-zoom">
+                    </a>
+                    <img src="images/title.png" alt="" class="pwcwm-title">
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style1 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s1-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi1wm-album clearfix">
+                        <a href="images/s1i1.jpg" class="pwi1wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s1i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s1i2.jpg" class="pwi1wma-img2 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s1i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s1i3.jpg" class="pwi1wma-img3 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.9s">
+                            <img src="images/s1i3.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+
+                    <div class="pwi1wm-content">
+                        <p class="pw-text pw-italic">“Mỗi bức ảnh đều là khung hình đặc biệt khi nhìn từ trên cao. Nó khác xa với những khuôn hình quen thuộc mà chúng ta từng thấy và cũng đem lại những cảm xúc rất riêng.”</p>
+
+                        <p class="pw-text">Vũ Minh Quân là một nhiếp ảnh gia thú vị. Anh từng theo nghề chụp ảnh cưới, nhưng rồi mệt mỏi với những bức ảnh "cạn sáng tạo", Quân chuyển sang chụp ảnh về món ăn, rồi rong ruổi khắp nơi để ghi lại những vẻ đẹp rất khác của cuộc sống.</p>
+
+                        <p class="pw-text">Việt Nam, thiên nhiên, cuộc sống đã được các nhiếp ảnh gia khai thác gần như ở rất nhiều góc độ. Thế nhưng từ độ cao vài trăm mét nhìn xuống, những khung cảnh quen thuộc bỗng trở nên kỳ diệu và thu hút dưới ống kính của Vũ Minh Quân.</p>
+
+                        <p class="pw-text">Tiếp tục cầm máy đi khắp các tỉnh thành của Việt Nam để tìm kiếm và ghi lại những vẻ đẹp tuyệt vời còn tiềm ẩn của đất nước là dự định của nhiếp ảnh gia có biệt danh “súng ngắn” (Quân Shotgun). Với những bức hình của mình, Quân chỉ có mong muốn giản đơn là phát hiện, ngắm nhìn và chia sẻ nét đẹp của đất nước không chỉ với người Việt mà còn cả với thế giới.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s2-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s2i1.jpg" class="pwi2wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s2i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s2i2.jpg" class="pwi2wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s2i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s3-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s3i1.jpg" class="pwi3wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s3i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s3i2.jpg" class="pwi3wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s3i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s4-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s4i1.jpg" class="pwi3wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s4i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s4i2.jpg" class="pwi3wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s4i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s5-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s5i1.jpg" class="pwi2wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s5i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s5i2.jpg" class="pwi2wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s5i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style4 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s6-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi4wm-album clearfix">
+                        <a href="images/s6i1.jpg" class="pwi4wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s6i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s7-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi5wm-album clearfix">
+                        <a href="images/s7i1.jpg" class="pwi5wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s7i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s7i2.jpg" class="pwi5wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s7i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <div class="pwi6wm-album clearfix">
+                        <a href="images/s8i1.jpg" class="pwi6wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s8i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s8i2.jpg" class="pwi6wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s8i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style4 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s9-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi7wm-album clearfix">
+                        <a href="images/s9i1.jpg" class="pwi7wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s9i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s10-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s10i2.jpg" class="pwi8wma-img2 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s10i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s10i1.jpg" class="pwi8wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s10i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s11-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s11i1.jpg" class="pwi2wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s11i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s11i2.jpg" class="pwi2wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s11i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s12-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s12i1.jpg" class="pwi3wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s12i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s12i2.jpg" class="pwi3wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s12i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style4 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s13-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi8wm-album clearfix">
+                        <a href="images/s13i1.jpg" class="pwi7wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s13i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style4 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s14-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi8wm-album clearfix">
+                        <a href="images/s14i1.jpg" class="pwi7wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s14i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s15-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s15i1.jpg" class="pwi9wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s15i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s15i2.jpg" class="pwi9wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s15i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s16-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s16i1.jpg" class="pwi2wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s16i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s16i2.jpg" class="pwi2wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s16i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s17-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s17i2.jpg" class="pwi8wma-img2 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s17i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s17i1.jpg" class="pwi8wma-img1 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s17i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style2 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s18-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi2wm-album clearfix">
+                        <a href="images/s18i1.jpg" class="pwi9wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s18i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s18i2.jpg" class="pwi9wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s18i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style3 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s19-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi3wm-album clearfix">
+                        <a href="images/s19i1.jpg" class="pwi10wma-img1 wow fadeIn fl" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s19i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                        <a href="images/s19i2.jpg" class="pwi10wma-img2 wow fadeIn fr" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <img src="images/s19i2.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pw-item pw-style4 swiper-slide">
+            <div class="pwi-wrapper">
+                <div class="pwiw-main">
+                    <img src="images/s20-title.png" alt="" class="pwi1wm-title">
+
+                    <div class="pwi11wm-album clearfix">
+                        <a href="images/s20i1.jpg" class="pwi7wma-img1 wow fadeIn" data-fancy="images" data-wow-duration="1s" data-wow-delay="0.3s">
+                            <img src="images/s20i1.jpg" alt="" class="pw-img-zoom">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pw-reg animated"></div>
+</div>
+</body>
+</html>

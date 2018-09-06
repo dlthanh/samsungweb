@@ -1,0 +1,808 @@
+    <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cận cảnh cuộc sống của công nhân trong nhà máy "sản xuất nhiều em bé nhất Việt Nam"</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+        $(document).ready(function() {
+            var photoessay = new Swiper('.photoessay-wrapper', {
+                speed: 600,
+                slidePerView: 1,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                mousewheelControl: true,
+                simulateTouch: false,
+                onSlideChangeStart: function() {
+                    new WOW().init();
+                    $('.LayoutAlbumItem').hide();
+                    setTimeout(function() {
+                        $('.LayoutAlbumItem').fadeIn();
+                    },100)
+                }
+            });
+
+            $(".magz-img-zoom").fancybox({
+                padding: 0,
+                locked: false,
+                beforeShow: function () {
+                    $(".fancybox-overlay").addClass("fancybox-opening");
+                },
+                onUpdate: function () {
+                    $(window).scroll(function () {
+                        try {
+                            $.fancybox.close().transitions();
+                        } catch (e) {
+                        }
+                    });
+                    $(".fancybox-image").on('click', function () {
+                        $.fancybox.close().transitions();
+                    });
+                },
+                beforeClose: function () {
+                    $(".fancybox-overlay").addClass("fancybox-closing");
+                },
+                nextEffect: 'none',
+                prevEffect: 'none'
+            });
+
+            loadAlbum(SmartAlbumLayout);
+
+
+            $(window).resize(function () {
+                loadAlbum(SmartAlbumLayout);
+            });
+
+            $('.pw-arrow').click(function() {
+                photoessay.slideNext();
+            })
+
+            new WOW().init();
+        })
+
+        function loadAlbum(callback) {
+            var wbody = $(window).width();
+            var height = $(window).height();
+            if (wbody < 1020) {
+                if (wbody > height) {
+                    $('.spdcig-content.w660').css('width', 980).css('marginLeft', 0);
+                } else {
+                    $('.spdcig-content').css('width', wbody - 80);
+                    $('.spdcig-content').css('marginLeft', 0);
+
+                }
+
+            } else {
+                $('.spdcig-content.w660').css('width', 980).css('marginLeft', 0);
+
+
+            }
+
+            callback();
+        }
+
+        function SmartAlbumLayout() {
+            console.log('a');
+            var $obj = $('.LayoutAlbumRow');
+            $obj.each(function () {
+                var $pi = $('.LayoutAlbumItem', $(this)), cWidth = $(this).parents('.spdcig-content').width();
+                //Tạo 1 mảng chứa toàn bộ ratio của ảnh
+                var ratios = $pi.map(function () {
+                    return $(this).find('img').attr('w') / $(this).find('img').attr('h');
+                }).get();
+                //Lấy tổng width
+                var sumRatios = 0, sumMargins = 0,
+                    minRatio = Math.min.apply(Math, ratios);
+                for (var i = 0; i < $pi.length; i++) {
+                    sumRatios += ratios[i] / minRatio;
+                }
+                ;
+
+                $pi.each(function () {
+                    sumMargins += parseInt($(this).css('margin-left')) + parseInt($(this).css('margin-right'));
+                });
+
+                //Tính toán width/ height cần thiết
+                var widthRemain = cWidth;
+                $pi.each(function (i) {
+                    var minWidth = (cWidth - sumMargins) / sumRatios;
+
+                    var h = Math.floor(minWidth / minRatio);
+                    var w = Math.floor(minWidth / minRatio) * ratios[i];
+
+                    widthRemain = widthRemain - w;
+
+                    $('img', $(this)).height(h).width(w);
+                    $('img', $(this)).css({
+                        width: w,
+                        height: h
+                    });
+                });
+            });
+
+        }
+    </script>
+</head>
+<body>
+    <div class="photoessay-wrapper swiper-container">
+        <div class="swiper-wrapper">
+            <div class="pw-cover swiper-slide">
+                <div class="pwc-wrapper">
+                    <div class="pwcw-main">
+                        <img src="images/logo.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <img src="images/title.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                        <img src="images/sapo.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+
+                        <div class="pwcwm-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+                                                <a href="images/img-1.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery"> <img
+                                                        src="images/img-1.jpg" w="1600" h="900"/> </a>
+                                            </figure>
+                                        </div>
+
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-2.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery"> <img
+                                                        src="images/img-2.jpg" w="1600" h="899"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-3.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery"> <img
+                                                        src="images/img-3.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="1.2s">
+                                                <a href="images/img-4.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery"> <img
+                                                        src="images/img-4.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <!--
+                                    <p class="magz-caption w660">
+                                        Một nụ cười tỏa nắng, một tà áo dài thấp thoáng trên hè phố vắng, một mái tóc dài đen óng hay sự chăm chỉ, đảm đang... đều là nét đẹp quyến rũ của người phụ nữ Việt Nam.
+                                    </p>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/title-1.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <img src="images/sapo-1.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+
+                        <div class="pwiwm1-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-5.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-1"> <img
+                                                        src="images/img-5.jpg" w="1600" h="901"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/bg.png" alt="" class="pwcwm-bg">
+
+                        <img src="images/sapo-2.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+
+                        <div class="pwiwm2-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+                                                <a href="images/img-6.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-2"> <img
+                                                        src="images/img-6.jpg" w="1066" h="1600"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-7.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-2"> <img
+                                                        src="images/img-7.jpg" w="1066" h="1600"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-3.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                        <img src="images/sapo-4.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="1.2s">
+
+                        <div class="pwiwm3-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+                                                <a href="images/img-8.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-3"> <img
+                                                        src="images/img-8.jpg" w="1600" h="900"/> </a>
+                                            </figure>
+                                        </div>
+
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-9.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-3"> <img
+                                                        src="images/img-9.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-10.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-3"> <img
+                                                        src="images/img-10.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-5.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm4-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-11.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-4"> <img
+                                                        src="images/img-11.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-12.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-4"> <img
+                                                        src="images/img-12.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-6.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm4-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-13.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-5"> <img
+                                                        src="images/img-13.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-14.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-5"> <img
+                                                        src="images/img-14.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-7.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm5-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-15.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-6"> <img
+                                                        src="images/img-15.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/title-2.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <img src="images/sapo-8.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                        <div class="pwiwm2-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-16.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-7"> <img
+                                                        src="images/img-16.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-9.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm4-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-17.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-8"> <img
+                                                        src="images/img-17.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-18.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-8"> <img
+                                                        src="images/img-18.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-10.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm6-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-19.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-9"> <img
+                                                        src="images/img-19.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pwiwm7-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-20.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-9"> <img
+                                                        src="images/img-20.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-11.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm8-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-21.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-10"> <img
+                                                        src="images/img-21.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/title-3.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <img src="images/sapo-12.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                        <div class="pwiwm1-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-22.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-11"> <img
+                                                        src="images/img-22.jpg" w="1600" h="899"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-13.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm4-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-23.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-12"> <img
+                                                        src="images/img-23.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-24.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-12"> <img
+                                                        src="images/img-24.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-14.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm6-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-25.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-13"> <img
+                                                        src="images/img-25.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pwiwm7-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-26.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-13"> <img
+                                                        src="images/img-26.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-15.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <img src="images/sapo-16.png" alt="" class="pwcwm-cover wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                        <div class="pwiwm3-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-27.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-14"> <img
+                                                        src="images/img-27.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-28.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-14"> <img
+                                                        src="images/img-28.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="1.2s">
+                                                <a href="images/img-29.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-14"> <img
+                                                        src="images/img-29.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-17.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm4-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-30.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-15"> <img
+                                                        src="images/img-30.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-31.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-15"> <img
+                                                        src="images/img-31.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-18.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm6-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-32.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-16"> <img
+                                                        src="images/img-32.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pwiwm7-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-33.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-16"> <img
+                                                        src="images/img-33.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-19.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm9-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                                                <a href="images/img-34.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-17"> <img
+                                                        src="images/img-34.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pw-item swiper-slide">
+                <div class="pwi-wrapper">
+                    <div class="pwiw-main">
+                        <img src="images/sapo-20.png" alt="" class="pwcwm-bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+
+                        <div class="pwiwm6-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-35.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-18"> <img
+                                                        src="images/img-35.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pwiwm7-gallery">
+                            <div class="magz-album-wrapper LayoutAlbumWrapper">
+                                <div class="spdcig-content LastestLayoutAlbum">
+                                    <div class="LayoutAlbumContent">
+                                        <div class="LayoutAlbumRow">
+                                            <figure class="LayoutAlbumItem wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                                                <a href="images/img-36.jpg"
+                                                   class="magz-img-zoom"
+                                                   rel="sp-gallery-18"> <img
+                                                        src="images/img-36.jpg" w="1600" h="1066"/> </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
